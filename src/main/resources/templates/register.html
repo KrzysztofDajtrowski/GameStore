@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/commons.css">
+    <link rel="stylesheet" href="books.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<div id="logo">
+    <img src="/logo.png">
+</div>
+<div id="menu">
+    <a href="/main">Main</a>
+    <a href="/login"th:if="${logged==false}">Login</a>
+    <a href="/logout"th:if="${logged==true}">Wyloguj</a>
+</div>
+<div id="content">
+    <form id="login-form" method="post" >
+        <input type="text" placeholder="Imię" th:field="*{registerUser.name}">
+        <br>
+        <input type="text" placeholder="Nazwisko" th:field="*{registerUser.surname}">
+        <br>
+        <input type="text" placeholder="Login" th:field="*{registerUser.login}">
+        <br>
+        <input type="password" placeholder="Hasło" th:field="*{registerUser.password}">
+        <br>
+        <input type="password" placeholder="Powtórz hasło" th:field="*{registerUser.password2}">
+        <br>
+        <input type="text" placeholder="Email" th:field="*{registerUser.mail}">
+        <br>
+        <input type="submit" value="Rejestracja">
+    </form>
+
+
+</div>
+</body>
+</html>

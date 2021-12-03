@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="commons.css">
+    <link rel="stylesheet" href="games.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body id="body">
+<div id="logo">
+    <img src="/logo.png">
+</div>
+<div id="menu">
+    <a href="/main">Main</a>
+    <a href="/login"th:if="${logged==false}">Login</a>
+    <a href="/logout"th:if="${logged==true}">Wyloguj</a>
+</div>
+
+<div id="content">
+    <div class="game" th:each="game : ${games}">
+        <div th:text = ${game.title} class="title"></div>
+        <div th:text =${game.publisher} class="publisher"></div>
+        <img th:src ="@{${game.poster}}" class="poster"/>
+        <div th:text = "'Cena: ' + ${game.rentalPrice} + ' zł'" class="rentalPrice"></div>
+        <a th:href ="${game.golLink}" class="link">Sprawdź w serwisie Gry-online.pl</a>
+
+
+        <a href="/main"th:if="${logged==true}">Wyporzycz(jesli zalogowany, nie działa)</a>
+
+
+
+
+    </div>
+</div>
+</body>
+</html>
